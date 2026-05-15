@@ -12,6 +12,7 @@ object camion {
     }
 
     var pesoBase = 1000
+    
     method pesoTotal() = pesoBase + self.pesoDeElementos()
 
     method pesoDeElementos() = elementos.sum({elemento => elemento.peso()})
