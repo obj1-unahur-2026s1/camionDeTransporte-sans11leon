@@ -3,6 +3,7 @@ object knigthRider {
 
     method nivelDePeligro() = 10
 }
+
 object bumblebee {
     method peso() = 800
 
@@ -35,6 +36,7 @@ object paquetesDeLadrillos {
 
 object arenaAGranel {
   var peso = 0
+  method peso() = peso
 
   method nivelDePeligro() = 1
 
@@ -67,4 +69,47 @@ object bateriaAntiaerea {
             200
         }
   }
+}
+
+object contenedorPortuario {
+  const contenido = []
+
+  method peso() = 100 + self.pesoDeContenido()
+
+  method nivelDePeligro() = self.elMasPeligroso().nivelDePeligro()
+
+  method estaVacio() = contenido.isEmpty()
+
+  method agregar(objeto) {
+    contenido.add(objeto)
+  }
+  
+  method quitar(objeto) {
+    contenido.remove(objeto)
+  }
+
+  method elMasPeligroso() = contenido.max({elemento => elemento.nivelDePeligro()})
+
+  method pesoDeContenido() = contenido.sum({elemento => elemento.peso()})
+}
+
+object residuosRadioactivos {
+    var peso = 0
+    method peso() = peso
+    method peso(nuevoPeso) {
+      peso = nuevoPeso
+    } 
+
+    method nivelDePeligro() = 200
+}
+
+object embalajeDeSeguridad {
+  var cosa = null
+
+  method embalar(objeto) {
+    cosa = objeto
+  } 
+
+  method peso() = cosa.peso()
+  method nivelDePeligro() = cosa.nivelDePeligro() / 2
 }
