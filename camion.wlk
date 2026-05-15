@@ -11,7 +11,7 @@ object camion {
       elementos.remove(objeto)
     }
 
-    var pesoBase = 1000
+    const pesoBase = 1000
     
     method pesoTotal() = pesoBase + self.pesoDeElementos()
 
@@ -21,4 +21,13 @@ object camion {
     
     method elementoPesa(valor) = elementos.find({elemento => elemento.peso() == valor})
     
+    method elementosPeligro(nivelPeligro) = elementos.find({elemento => elemento.nivelDePeligro() == nivelPeligro})
+
+    method elementosMasPeligrososA(nivelPeligro) = elementos.filter({elemento => elemento.nivelDePeligro() > nivelPeligro})  
+
+    method elementosMasPeligrosos(unObjeto) = elementos.filter({elemento => elemento.nivelDePeligro() > unObjeto.nivelDePeligro() })
+    
+    method tienePesoExedido() = self.pesoTotal() > 2500
+
+    method puedeCircular(nivelPeligro) = !self.tienePesoExedido() && !self.elementosPeligro(nivelPeligro)
 }
