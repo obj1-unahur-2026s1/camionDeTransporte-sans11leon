@@ -8,22 +8,23 @@ object bumblebee {
     method peso() = 800
 
     var esAuto = false
-    method esAuto(bool) {
-      esAuto = bool
+
+    //method esAuto(bool) { esAuto = bool }
+    method transformar() {
+      esAuto = !esAuto
     }
 
     method nivelDePeligro() {
-        return
         if (esAuto){
-            15
+            return 15
         } else{
-            30
+            return 30
         }
     }
 }
 
 object paquetesDeLadrillos {
-  var cantidadDeLadrillos = 1
+  var cantidadDeLadrillos = 0
 
   method peso() = 2 * cantidadDeLadrillos
 
@@ -37,36 +38,35 @@ object paquetesDeLadrillos {
 object arenaAGranel {
   var peso = 0
   method peso() = peso
-
-  method nivelDePeligro() = 1
-
   method cambiarPeso(nuevoPeso) {
     peso = nuevoPeso
   }
+  //var property peso = x 
+
+  method nivelDePeligro() = 1
+
 }
 
 object bateriaAntiaerea {
-  var estaCargado = false
+  var estaCargado = true
   method estaCargado() = estaCargado
   method estaCargado(bool){
     estaCargado = bool
   }
 
-  method nivelDePligro() {
-    return
+  method nivelDePeligro() {
     if (estaCargado){
-        100
+        return 100
     } else{
-        0
+        return 0
     }
   }
   
   method peso() {
-    return
         if (estaCargado){
-            300
+            return 300
         } else { 
-            200
+            return 200
         }
   }
 }
@@ -98,7 +98,7 @@ object residuosRadioactivos {
     method peso() = peso
     method peso(nuevoPeso) {
       peso = nuevoPeso
-    } 
+    }
 
     method nivelDePeligro() = 200
 }

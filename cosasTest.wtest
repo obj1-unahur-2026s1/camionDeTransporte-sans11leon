@@ -1,9 +1,17 @@
 import cosas.*
 
-describe "group of test for cosas" {
+describe "paquetes de ladrillos" {
 
-  test "first test" {
-    assert.that(true)
+  test "peso de ladrillo, 20 ladrillos pesan 40" {
+    paquetesDeLadrillos.cambiarCantidad(20)
+    assert.equals(40, paquetesDeLadrillos.peso())
   }
 
+}
+
+describe "bateria antiaerea" {
+  test "peso de la bateria antiaerea" {
+    assert.that(booleanExpression)
+    assert.equals(value, expression)
+  }
 }
